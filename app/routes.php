@@ -44,8 +44,9 @@ Route::post('/register',function(){
 });
 
 Route::get('users', 'UserController@getIndex');
-
 Route::get('/post/', 'PostController@getIndex');
 Route::get('/post/recent', 'PostController@getRecentList');
-Route::get('/post/add', ' PostController@addPost');
+Route::get('/post/add', function(){
+	return View::make('posts.add');
+});
 Route::post('/post/add', 'PostController@addPost');

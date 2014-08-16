@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2014 at 11:03 AM
+-- Generation Time: Aug 16, 2014 at 12:16 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -45,10 +45,23 @@ CREATE TABLE IF NOT EXISTS `Comments` (
 CREATE TABLE IF NOT EXISTS `Members` (
   `member_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
-  `project_id` int(11) DEFAULT NULL,
   `post_id` int(11) DEFAULT NULL,
   `member_status` int(11) DEFAULT NULL,
   PRIMARY KEY (`member_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Positions`
+--
+
+CREATE TABLE IF NOT EXISTS `Positions` (
+  `position_id` int(11) NOT NULL AUTO_INCREMENT,
+  `position_title` text,
+  `position_noofneeded` int(11) DEFAULT NULL,
+  `post_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`position_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -61,19 +74,20 @@ CREATE TABLE IF NOT EXISTS `Posts` (
   `post_id` int(11) NOT NULL AUTO_INCREMENT,
   `post_description` text,
   `post_user` int(11) DEFAULT NULL,
-  `post_status` int(11) DEFAULT NULL,
-  `post_view` int(11) DEFAULT NULL,
+  `post_status` int(11) DEFAULT '1',
+  `post_view` int(11) DEFAULT '0',
   `post_date` datetime DEFAULT NULL,
   `post_title` text,
   PRIMARY KEY (`post_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `Posts`
 --
 
 INSERT INTO `Posts` (`post_id`, `post_description`, `post_user`, `post_status`, `post_view`, `post_date`, `post_title`) VALUES
-(1, 'Cooking App to . , Matinding cooking app to', 1, 1, 1, '0000-00-00 00:00:00', 'Cooking App');
+(1, 'Cooking App to . , Matinding cooking app to', 1, 1, 1, '0000-00-00 00:00:00', 'Cooking App'),
+(2, 'dsfa', 1, 1, 0, '2014-08-16 10:13:42', 'adf');
 
 -- --------------------------------------------------------
 
