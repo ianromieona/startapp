@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2014 at 12:16 PM
+-- Generation Time: Aug 16, 2014 at 04:01 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -53,20 +53,6 @@ CREATE TABLE IF NOT EXISTS `Members` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Positions`
---
-
-CREATE TABLE IF NOT EXISTS `Positions` (
-  `position_id` int(11) NOT NULL AUTO_INCREMENT,
-  `position_title` text,
-  `position_noofneeded` int(11) DEFAULT NULL,
-  `post_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`position_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `Posts`
 --
 
@@ -78,6 +64,7 @@ CREATE TABLE IF NOT EXISTS `Posts` (
   `post_view` int(11) DEFAULT '0',
   `post_date` datetime DEFAULT NULL,
   `post_title` text,
+  `post_tag` text,
   PRIMARY KEY (`post_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
@@ -85,9 +72,9 @@ CREATE TABLE IF NOT EXISTS `Posts` (
 -- Dumping data for table `Posts`
 --
 
-INSERT INTO `Posts` (`post_id`, `post_description`, `post_user`, `post_status`, `post_view`, `post_date`, `post_title`) VALUES
-(1, 'Cooking App to . , Matinding cooking app to', 1, 1, 1, '0000-00-00 00:00:00', 'Cooking App'),
-(2, 'dsfa', 1, 1, 0, '2014-08-16 10:13:42', 'adf');
+INSERT INTO `Posts` (`post_id`, `post_description`, `post_user`, `post_status`, `post_view`, `post_date`, `post_title`, `post_tag`) VALUES
+(1, 'Cooking App to . , Matinding cooking app to', 1, 1, 1, '0000-00-00 00:00:00', 'Cooking App', NULL),
+(2, 'dsfa', 1, 1, 0, '2014-08-16 10:13:42', 'adf', NULL);
 
 -- --------------------------------------------------------
 
@@ -123,15 +110,16 @@ CREATE TABLE IF NOT EXISTS `Ratings` (
 --
 
 CREATE TABLE IF NOT EXISTS `Users` (
-  `user_id` int(11) NOT NULL,
-  `user_type` varchar(45) DEFAULT NULL,
-  `user_name` varchar(45) DEFAULT NULL,
-  `user_password` varchar(45) DEFAULT NULL,
-  `user_email` varchar(45) DEFAULT NULL,
-  `user_fullname` varchar(45) DEFAULT NULL,
-  `user_lastlogin` varchar(45) DEFAULT NULL,
-  `user_dateregistered` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
+  `id` int(11) NOT NULL,
+  `username` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  `user_email` varchar(50) DEFAULT NULL,
+  `user_firstname` varchar(45) DEFAULT NULL,
+  `user_lastname` varchar(45) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `remember_token` text,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
