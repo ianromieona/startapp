@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.12
+-- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2014 at 11:44 AM
--- Server version: 5.6.16
--- PHP Version: 5.5.11
+-- Generation Time: Aug 16, 2014 at 04:01 PM
+-- Server version: 5.5.27
+-- PHP Version: 5.4.7
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comments`
+-- Table structure for table `Comments`
 --
 
-CREATE TABLE IF NOT EXISTS `comments` (
+CREATE TABLE IF NOT EXISTS `Comments` (
   `comment_id` int(11) NOT NULL AUTO_INCREMENT,
   `comment_message` text,
   `comment_type` int(11) DEFAULT NULL,
@@ -39,13 +39,12 @@ CREATE TABLE IF NOT EXISTS `comments` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `members`
+-- Table structure for table `Members`
 --
 
-CREATE TABLE IF NOT EXISTS `members` (
+CREATE TABLE IF NOT EXISTS `Members` (
   `member_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
-  `project_id` int(11) DEFAULT NULL,
   `post_id` int(11) DEFAULT NULL,
   `member_status` int(11) DEFAULT NULL,
   PRIMARY KEY (`member_id`)
@@ -54,34 +53,36 @@ CREATE TABLE IF NOT EXISTS `members` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `posts`
+-- Table structure for table `Posts`
 --
 
-CREATE TABLE IF NOT EXISTS `posts` (
+CREATE TABLE IF NOT EXISTS `Posts` (
   `post_id` int(11) NOT NULL AUTO_INCREMENT,
   `post_description` text,
   `post_user` int(11) DEFAULT NULL,
-  `post_status` int(11) DEFAULT NULL,
-  `post_view` int(11) DEFAULT NULL,
+  `post_status` int(11) DEFAULT '1',
+  `post_view` int(11) DEFAULT '0',
   `post_date` datetime DEFAULT NULL,
   `post_title` text,
+  `post_tag` text,
   PRIMARY KEY (`post_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `posts`
+-- Dumping data for table `Posts`
 --
 
-INSERT INTO `posts` (`post_id`, `post_description`, `post_user`, `post_status`, `post_view`, `post_date`, `post_title`) VALUES
-(1, 'Cooking App to . , Matinding cooking app to', 1, 1, 1, '0000-00-00 00:00:00', 'Cooking App');
+INSERT INTO `Posts` (`post_id`, `post_description`, `post_user`, `post_status`, `post_view`, `post_date`, `post_title`, `post_tag`) VALUES
+(1, 'Cooking App to . , Matinding cooking app to', 1, 1, 1, '0000-00-00 00:00:00', 'Cooking App', NULL),
+(2, 'dsfa', 1, 1, 0, '2014-08-16 10:13:42', 'adf', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `projects`
+-- Table structure for table `Projects`
 --
 
-CREATE TABLE IF NOT EXISTS `projects` (
+CREATE TABLE IF NOT EXISTS `Projects` (
   `project_id` int(11) NOT NULL AUTO_INCREMENT,
   `post_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`project_id`)
@@ -90,10 +91,10 @@ CREATE TABLE IF NOT EXISTS `projects` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ratings`
+-- Table structure for table `Ratings`
 --
 
-CREATE TABLE IF NOT EXISTS `ratings` (
+CREATE TABLE IF NOT EXISTS `Ratings` (
   `rating_id` int(11) NOT NULL AUTO_INCREMENT,
   `rating_value` int(11) DEFAULT NULL,
   `rating_fromid` int(11) DEFAULT NULL,
@@ -105,21 +106,21 @@ CREATE TABLE IF NOT EXISTS `ratings` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `Users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_firstname` varchar(100) NOT NULL,
-  `user_lastname` varchar(100) NOT NULL,
-  `user_email` varchar(100) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `password` text NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  `remember_token` text NOT NULL,
+CREATE TABLE IF NOT EXISTS `Users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  `user_email` varchar(50) DEFAULT NULL,
+  `user_firstname` varchar(45) DEFAULT NULL,
+  `user_lastname` varchar(45) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `remember_token` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
