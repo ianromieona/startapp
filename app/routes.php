@@ -50,3 +50,7 @@ Route::get('/post/add', function(){
 	return View::make('posts.add');
 });
 Route::post('/post/add', 'PostController@addPost');
+
+Route::get('/user/profile', function(){
+	return View::make('user.profile');
+});
