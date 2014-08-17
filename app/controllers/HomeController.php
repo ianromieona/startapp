@@ -29,6 +29,7 @@ class HomeController extends BaseController {
 		return Redirect::to('/');
 	}
 	public function home(){
+		return Response::json(Post::listAll());
 		$this->layout->content = View::make('home');
 	}
 
