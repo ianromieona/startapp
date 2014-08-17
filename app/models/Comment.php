@@ -33,5 +33,23 @@ class Comment extends Eloquent
 		}
 		return false;
 	}
+	public static function getComments($id){
+		$query = self::where('post_id', '=', $id)->get();
+		$comments = array();
+		$i = 0;
+		if($query){
+			foreach ($comments as $key => $value) {
+				
+			}
+		}
+		return $query;
+		
+	}
+	// public static function getChildComments($id){
+	// 	if($parent){
+	// 		$query = self::where('post_id', '=', $id)->where('parent')->get();
+			
+	// 	}
+	// }  
 
 }

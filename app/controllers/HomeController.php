@@ -29,7 +29,7 @@ class HomeController extends BaseController {
 		return Redirect::to('/');
 	}
 	public function home(){
-		return Response::json(Post::listAll());
+		return Response::json(Comment::getComments(1));
 		$this->layout->content = View::make('home');
 	}
 
