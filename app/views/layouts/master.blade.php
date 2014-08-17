@@ -7,6 +7,7 @@
 	{{ HTML::style('assets/css/demo.css'); }}
 	{{ HTML::style('assets/css/component.css'); }}
 	{{ HTML::style('assets/css/main.css'); }}
+	{{ HTML::style('assets/css/font-awesome.css'); }}
 	{{ HTML::script('assets/js/modernizr.custom.js'); }}
 	
 <body>

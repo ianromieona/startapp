@@ -2,7 +2,7 @@ body {
   font-family: "font-ian";
 }
 .navbar {
-    background:#42A2CE;
+    background:#D74B4B;
     border-radius: 0px;
 }
 .navbar .navbar-brand {
@@ -10,17 +10,11 @@ body {
     font-weight:bolder;
     font-family: "font-ian";
 }
-.navbar .login {
-    font-family: "font-ian";
+.navbar a.login {
+    font-family: "Harabara";
     font-weight: 100;
-    border-radius: 6px !important;
     color:#fff ! important;
-    font-size: 16px;
-    background-color: #3B5998 !important;
-    padding:10px;
-    margin-top:3px;
-    letter-spacing: 1px;
-    border:1px solid #42A2CE;
+    font-size: 20px;
 }
 .navbar .login:hover {
      background: #bf2828;
@@ -50,15 +44,7 @@ body {
   border:1px solid #D74B4B;
 }
 .grid li figure figcaption h4{
-  color:#42A2CE;
-  font-family:"font-ian";
-  font-weight:100;
-}
-.grid li figure figcaption p{
-  color:#CECECE; 
-}
-.grid li figure figcaption{
-  background-color:#F9F9F9
+  color:#DA0600;
 }
 #register-form input[type='text'], #register-form input[type='email'], #register-form input[type='password'], #login-form input[type='text'], #login-form input[type='password']{
   border-radius:0px;

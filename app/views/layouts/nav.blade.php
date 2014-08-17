@@ -6,20 +6,20 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-    	<a class="navbar-brand" href="#">WebCup</a>
+    	<a class="navbar-brand" href="#">{{ HTML::image('assets/images/logo.png','logo',array('width'=>'100px')) }}</a>
     </div>
 	<div class="collapse navbar-collapse">
 		<ul class="nav navbar-nav nav-link">
-			<li><a href="">Link</a></li>
+			<li>{{ link_to_route('home','IDEAS') }}</li>
 			<li><a href="">Link</a></li>
 			<li><a href="">Link</a></li>
 			<li><a href="">Link</a></li>
 		</ul>
 		<ul class="nav navbar-nav user-log pull-right">
-			@if(Auth::check())
-				<li>{{ link_to_route('logout','SIGN OUT',null,array('class'=>'login btn btn-danger')) }}</li>
+			@if(Session::get('userDetails'))
+				<li>{{ link_to_route('logout','LOGOUT',null,array('class'=>'login btn btn-danger')) }}</li>
 			@else
-				<li>{{ link_to_route('login','SIGN IN',null,array('class'=>'login btn btn-danger')) }}</li>
+				<li><a href="{{ URL::to('/login/facebook') }}" class='login btn btn-danger'><i class="fa fa-facebook fa-2"></i> Facebook</a></li>
 			@endif
 			
 		</ul>

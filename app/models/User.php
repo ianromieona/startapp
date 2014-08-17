@@ -30,4 +30,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		}
 		return false;
 	}
+
+	public static function get($param = null){
+		if(Session::has('userDetails')){
+			$details = Session::get('userDetails');
+			if($param){
+				return $details[$param];	
+			}else{
+				return $details;
+			}
+			return false;
+		}
+	} 
 }
