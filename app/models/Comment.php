@@ -9,12 +9,13 @@ class Comment extends Eloquent
 
 	public static function addComment($params){
 		$add = new Ratings;
+		$add->comment_id = 'id';
 		$add->comment_message = $params['comment_message'];
 		$add->comment_toid = $params['comment_toid'];
 		$add->comment_fromid = $params['comment_fromid'];
 		$add->comment_type = $params['comment_type'];
 		$add->comment_date = date('Y-m-d h:m:i');
-		$add-> save(false);
+		$add-> save();
 	}
 
 	public static function deleteComment($id){
@@ -26,7 +27,7 @@ class Comment extends Eloquent
 	}
 
 	public static function editComment($params){
-		$update = self::where('comment_id', $id)->update($params);
+		$update = self::where('comment_id', $params['comment_id'])->update($params);
 		if($update){
 			return true;
 		}
